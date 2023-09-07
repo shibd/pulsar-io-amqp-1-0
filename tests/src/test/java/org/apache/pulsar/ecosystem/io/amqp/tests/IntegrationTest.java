@@ -86,6 +86,8 @@ public class IntegrationTest {
                 sourceConfigYaml, "/pulsar/" + sourceConfigYaml, BindMode.READ_ONLY);
         standaloneContainer.withClasspathResourceMapping(
                 "amqp1_0-sink-config.yaml", "/pulsar/amqp1_0-sink-config.yaml", BindMode.READ_ONLY);
+        standaloneContainer.withClasspathResourceMapping(
+                "./", "/pulsar/logs/functions/", BindMode.READ_WRITE);
 
         standaloneContainer.start();
         log.info("standalone container start.");

@@ -54,3 +54,15 @@ jobs:
       with:
         name: surefire-artifacts
         path: artifacts.zip
+
+    - name: package connector logs
+      if: failure()
+      run: |
+        zip -r connector-logs.zip target/test-classes/public
+
+    - uses: actions/upload-artifact@master
+      name: upload connectors logs
+      if: failure()
+      with:
+        name: connectors-logs
+        path: connector-logs.zip
