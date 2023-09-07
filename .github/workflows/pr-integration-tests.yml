@@ -58,7 +58,7 @@ jobs:
     - name: package connector logs
       if: failure()
       run: |
-        zip -r connector-logs.zip target/test-classes/public
+        zip -r connector-logs.zip tests/target/test-classes/public
 
     - uses: actions/upload-artifact@master
       name: upload connectors logs
